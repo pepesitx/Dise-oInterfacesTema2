@@ -16,9 +16,9 @@ public class MainApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Mi primer proyecto");
-        stage.setMaximized(true);
         stage.setScene(scene);
         stage.show();
+        stage.requestFocus();
 
         //centrar en pantalla
         Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
