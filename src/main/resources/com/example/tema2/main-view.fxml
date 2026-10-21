@@ -13,15 +13,16 @@
    <center>
       <VBox prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="labelTitle" focusTraversable="true" text="Calculadora">
+            <Label fx:id="labelTitle" focusTraversable="true" text="%label.title">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="textFieldNumber1" promptText="Número 1" />
-            <TextField fx:id="textFieldNumber2" promptText="Número 2" />
-            <ComboBox fx:id="comboBoxOperation" prefHeight="25.0" prefWidth="200.0" promptText="Selecciona una opción" />
-            <Button fx:id="buttonCalculate" mnemonicParsing="false" text="Calcular" />
+            <TextField fx:id="textFieldNumber1" promptText="%textfield.number1" />
+            <TextField fx:id="textFieldNumber2" promptText="%textfield.number2" />
+            <ComboBox fx:id="comboBoxOperation" prefHeight="25.0" prefWidth="200.0" promptText="%combobox.operation" />
+            <Button fx:id="buttonCalculate" disable="true" mnemonicParsing="false" text="%button.calculate" />
+            <Label fx:id="labelResult" />
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

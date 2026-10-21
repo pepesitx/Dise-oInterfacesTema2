@@ -7,13 +7,19 @@ import javafx.scene.Scene;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-view.fxml"));
+        //Sets the language
+        Locale locale = Locale.forLanguageTag("es");
+        ResourceBundle bundle = ResourceBundle.getBundle("i18n.messages", locale);
+
+
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-view.fxml"), bundle);
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Mi primer proyecto");
         stage.setScene(scene);
