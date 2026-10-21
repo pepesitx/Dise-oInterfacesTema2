@@ -1,5 +1,11 @@
 package com.example.tema2;
 
+import atlantafx.base.theme.CupertinoDark;
+import atlantafx.base.theme.CupertinoLight;
+import atlantafx.base.theme.Dracula;
+import atlantafx.base.theme.Theme;
+import javafx.application.Application;
+import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -15,7 +21,7 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
 
     @FXML private TextField textFieldNumber1, textFieldNumber2;
-    @FXML private ComboBox<Option> comboBoxOperation;
+    @FXML private ComboBox<Option> comboBoxOperation, comboboxTheme;
     @FXML private Button buttonCalculate;
     @FXML private Label labelTitle, labelResult;
 
@@ -29,6 +35,22 @@ public class MainController implements Initializable {
         Option optionSubstract = new Option("Substract", bundle.getString("option.subtract"));
         Option optionMultiply = new Option("Multiply",   bundle.getString("option.multiply"));
         Option optionDivide = new Option("Divide",       bundle.getString("option.divide"));
+
+        Option optionTheme1 = new Option("Theme1", "CupertinoLight");
+        Option optionTheme2 = new Option("Theme2", "CupertinoDark");
+        Option optionTheme3 = new Option("Theme3", "Dracula");
+        comboboxTheme.getItems().addAll(optionTheme1, optionTheme2, optionTheme3);
+        comboboxTheme.valueProperty().addListener(Observable -> {
+            Option newOption = comboboxTheme.getValue();
+            Theme newTheme = switch (newOption.getKey().toString()){
+                case "Theme1" -> new CupertinoLight();
+                case "Theme2" -> new CupertinoDark();
+                case "Theme3" -> new Dracula();
+                default -> null;
+            };
+            Application.setUserAgentStylesheet(newTheme.getUserAgentStylesheet());
+        });
+
         labelTitle.requestFocus();
         comboBoxOperation.getItems().addAll(optionAdd, optionSubstract, optionMultiply, optionDivide);
 

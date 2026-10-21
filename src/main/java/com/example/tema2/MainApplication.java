@@ -1,5 +1,8 @@
 package com.example.tema2;
 
+import atlantafx.base.theme.NordDark;
+import atlantafx.base.theme.PrimerDark;
+import atlantafx.base.theme.Theme;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -7,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+
+import java.awt.desktop.AppForegroundListener;
 import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -14,6 +19,10 @@ import java.util.ResourceBundle;
 public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        //sets the Theme
+        Theme theme = new NordDark();
+        Application.setUserAgentStylesheet(theme.getUserAgentStylesheet());
+
         //Sets the language
         Locale locale = Locale.forLanguageTag("es");
         ResourceBundle bundle = ResourceBundle.getBundle("i18n.messages", locale);

@@ -29,4 +29,11 @@
          </padding>
       </VBox>
    </center>
+   <bottom>
+      <ComboBox fx:id="comboboxTheme" prefWidth="200.0" promptText="%combobox.theme" BorderPane.alignment="CENTER_RIGHT">
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+      </ComboBox>
+   </bottom>
 </BorderPane>
